@@ -349,7 +349,6 @@ section[id]{ scroll-margin-top: 90px; }
 .section-inner{ max-width: var(--max-w); margin: 0 auto; }
 .section-eyebrow{ font-size: 0.75rem; color: var(--wine-ink-2); font-weight:600; margin-bottom: 14px; }
 .section-title{
-  .section-title{
   font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(3.5rem, 6vw, 5.5rem);
@@ -357,7 +356,7 @@ section[id]{ scroll-margin-top: 90px; }
   max-width: none;
   width: 100%;
   margin-bottom: clamp(36px, 5vw, 56px);
-}
+
 }
 
 /* =============================================================
