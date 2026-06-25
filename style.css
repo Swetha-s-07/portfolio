@@ -145,10 +145,10 @@ section[id] { scroll-margin-top: 80px; }
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  padding: 13px 26px;
+  padding: 10px 20px;
   border-radius: 999px;
   font-weight: 600;
-  font-size: 0.93rem;
+  font-size: 0.82rem;
   border: 1px solid transparent;
   transition:
     transform var(--t-fast) var(--ease),
@@ -156,7 +156,7 @@ section[id] { scroll-margin-top: 80px; }
     background var(--t-fast) var(--ease);
   white-space: nowrap;
 }
-.btn-icon { width: 17px; height: 17px; flex-shrink: 0; }
+.btn-icon { width: 14px; height: 14px; }
 .btn-primary {
   color: #fff;
   background: linear-gradient(135deg, var(--wine-ink), var(--wine-ink-2));
