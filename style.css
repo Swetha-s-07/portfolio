@@ -37,7 +37,7 @@
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 10px;
-  --section-pad: clamp(72px, 10vw, 128px);
+  --section-pad:  clamp(48px, 6vw, 80px);
 
   /* motion */
   --ease: cubic-bezier(.22,.61,.36,1);
