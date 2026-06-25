@@ -248,7 +248,12 @@ section[id]{ scroll-margin-top: 90px; }
    ============================================================= */
 .hero{
   position: relative;
-  padding: clamp(56px, 9vw, 110px) 28px clamp(80px, 10vw, 120px);
+  .hero{
+    padding-top:60px;
+    padding-right:28px;
+    padding-bottom:20px;
+    padding-left:28px;
+}
   display:flex;
   flex-direction: column;
   align-items:center;
@@ -290,7 +295,7 @@ section[id]{ scroll-margin-top: 90px; }
 .hero-card-wrap{ display:flex; justify-content:center; perspective: 1200px; }
 
 .scroll-cue{
-  margin-top: 50px;
+  margin-top: 20px;
   width: 26px; height: 42px;
   border: 2px solid var(--wine-ink-2);
   border-radius: 20px;
