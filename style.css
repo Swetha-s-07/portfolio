@@ -120,9 +120,18 @@ section[id]{ scroll-margin-top: 90px; }
     max-width: var(--max-w);
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 0.8fr 0.9fr;
-    gap: 40px;
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 60px;
     align-items: center;
+}
+.hero-card-wrap{
+    position: absolute;
+    right: 120px;
+    bottom: -80px;
+    z-index: 10;
+}
+.hero{
+    position: relative;
 }
 
 .hero-image img{
