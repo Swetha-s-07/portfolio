@@ -518,13 +518,7 @@ section[id] { scroll-margin-top: 80px; }
 /* On a 3-col grid with 5 items the last row has 2 items.
    We centre the last row by making those 2 items span to be centered. */
 .skills-grid .skill-card:nth-child(4),
-{ grid-column: 1 / 2;
-  margin-left: 50%;
-  width: 100%;
-}
 .skills-grid .skill-card:nth-child(5) {
-   grid-column: 2 / 3;
-  width: 100%;
   /* 5 items, 3 cols → row 2 starts at col 1. No centering hack needed. */
 }
 
