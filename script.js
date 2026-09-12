@@ -1,320 +1,743 @@
-/* =============================================================
-   SWETHA S — PORTFOLIO INTERACTIONS
-   =============================================================
-   Sections below:
-   1. Shared helpers (reduced-motion check)
-   2. Mobile navigation toggle
-   3. Active nav-link highlighting on scroll
-   4. Hero typing effect
-   5. Scroll-reveal (fade-in / slide-up) with stagger
-   6. Animated skill bars
-   7. Animated achievement counters
-   8. Cursor-tilt for glass cards (credential + project/research)
-   9. Footer year
-   ============================================================= */
+/* =========================================================
+   SWETHA S - PROFESSIONAL PORTFOLIO
+   Main JavaScript
+========================================================= */
 
-(function () {
-  "use strict";
+"use strict";
 
-  /* ---------- 1. Shared helpers ---------- */
-  var prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-  var isTouchDevice = window.matchMedia("(hover: none)").matches;
 
-  /* ---------- 2. Mobile navigation toggle ---------- */
-  var navToggle = document.getElementById("navToggle");
-  var navLinks = document.getElementById("navLinks");
+/* =========================================================
+   1. DOM ELEMENTS
+========================================================= */
 
-  function closeMenu() {
-    navToggle.classList.remove("is-open");
-    navLinks.classList.remove("is-open");
-    navToggle.setAttribute("aria-expanded", "false");
-  }
+const body = document.body;
 
-  if (navToggle && navLinks) {
-    navToggle.addEventListener("click", function () {
-      var willOpen = !navLinks.classList.contains("is-open");
-      navToggle.classList.toggle("is-open", willOpen);
-      navLinks.classList.toggle("is-open", willOpen);
-      navToggle.setAttribute("aria-expanded", String(willOpen));
-    });
+const themeToggle = document.getElementById("theme-toggle");
+const themeIcon = document.getElementById("theme-icon");
 
-    navLinks.querySelectorAll(".nav-link").forEach(function (link) {
-      link.addEventListener("click", closeMenu);
-    });
-  }
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
 
-  /* ---------- 3. Active nav-link highlighting ---------- */
-  var sections = document.querySelectorAll("main section[id]");
-  var navLinkMap = {};
-  document.querySelectorAll(".nav-link").forEach(function (link) {
-    var id = link.getAttribute("href").replace("#", "");
-    navLinkMap[id] = link;
-  });
+const navLinks = document.querySelectorAll(".nav-link");
 
-  if ("IntersectionObserver" in window && sections.length) {
-    var navObserver = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          var link = navLinkMap[entry.target.id];
-          if (!link) return;
-          if (entry.isIntersecting) {
-            document
-              .querySelectorAll(".nav-link.active")
-              .forEach(function (l) {
-                l.classList.remove("active");
-              });
-            link.classList.add("active");
-          }
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
-    );
-    sections.forEach(function (s) {
-      navObserver.observe(s);
-    });
-  }
+const sections = document.querySelectorAll("main section[id]");
 
-  /* ---------- 4. Hero typing effect ---------- */
-  var typedEl = document.getElementById("typedRole");
-  var phrases = [
-    "Java Developer.",
-    "Python Engineer.",
-    "Full-Stack Web Developer.",
-    "Oracle Certified Java SE 17 Developer."
-  ];
+const siteHeader = document.getElementById("site-header");
 
-  if (typedEl) {
-    if (prefersReducedMotion) {
-      typedEl.textContent = phrases[0];
-    } else {
-      (function typeLoop() {
-        var phraseIndex = 0;
-        var charIndex = 0;
-        var deleting = false;
 
-        function tick() {
-          var current = phrases[phraseIndex];
+/* =========================================================
+   2. THEME MANAGEMENT
+========================================================= */
 
-          if (!deleting) {
-            charIndex++;
-            typedEl.textContent = current.slice(0, charIndex);
-            if (charIndex === current.length) {
-              deleting = true;
-              setTimeout(tick, 1800);
-              return;
-            }
-            setTimeout(tick, 55);
-          } else {
-            charIndex--;
-            typedEl.textContent = current.slice(0, charIndex);
-            if (charIndex === 0) {
-              deleting = false;
-              phraseIndex = (phraseIndex + 1) % phrases.length;
-              setTimeout(tick, 300);
-              return;
-            }
-            setTimeout(tick, 28);
-          }
+const THEME_STORAGE_KEY = "swetha-portfolio-theme";
+
+
+/*
+    Apply selected theme
+*/
+function applyTheme(theme) {
+
+    if (theme === "dark") {
+
+        body.setAttribute("data-theme", "dark");
+
+        if (themeIcon) {
+            themeIcon.textContent = "☀";
         }
-        tick();
-      })();
+
+        if (themeToggle) {
+            themeToggle.setAttribute(
+                "aria-label",
+                "Switch to light theme"
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                "Switch to light theme"
+            );
+        }
+
+    } else {
+
+        body.setAttribute("data-theme", "light");
+
+        if (themeIcon) {
+            themeIcon.textContent = "☾";
+        }
+
+        if (themeToggle) {
+            themeToggle.setAttribute(
+                "aria-label",
+                "Switch to dark theme"
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                "Switch to dark theme"
+            );
+        }
     }
-  }
+}
 
-  /* ---------- 5. Scroll-reveal with stagger ---------- */
-  var staggerGroups = document.querySelectorAll(
-    ".skills-grid, .card-grid, .stats-grid, .contact-grid, .timeline, .about-grid"
-  );
-  staggerGroups.forEach(function (group) {
-    var items = group.querySelectorAll(".reveal");
-    items.forEach(function (item, i) {
-      item.style.transitionDelay = Math.min(i * 80, 320) + "ms";
+
+/*
+    Get saved theme.
+    If there is no saved theme, use light theme.
+*/
+function initializeTheme() {
+
+    const savedTheme =
+        localStorage.getItem(THEME_STORAGE_KEY);
+
+    const initialTheme =
+        savedTheme === "dark"
+            ? "dark"
+            : "light";
+
+    applyTheme(initialTheme);
+}
+
+
+/*
+    Theme toggle click
+*/
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", () => {
+
+        const currentTheme =
+            body.getAttribute("data-theme");
+
+        const newTheme =
+            currentTheme === "dark"
+                ? "light"
+                : "dark";
+
+        applyTheme(newTheme);
+
+        localStorage.setItem(
+            THEME_STORAGE_KEY,
+            newTheme
+        );
+
     });
-  });
 
-  var revealEls = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
-    var revealObserver = new IntersectionObserver(
-      function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+}
+
+
+/* Initialize theme immediately */
+initializeTheme();
+
+
+/* =========================================================
+   3. MOBILE NAVIGATION
+========================================================= */
+
+
+/*
+    Open / close mobile menu
+*/
+function toggleMobileMenu() {
+
+    if (!menuToggle || !navMenu) {
+        return;
+    }
+
+    const isOpen =
+        menuToggle.classList.toggle("active");
+
+    navMenu.classList.toggle(
+        "active",
+        isOpen
     );
-    revealEls.forEach(function (el) {
-      revealObserver.observe(el);
-    });
-  } else {
-    revealEls.forEach(function (el) {
-      el.classList.add("is-visible");
-    });
-  }
 
-  /* ---------- 6. Animated skill bars ---------- */
-  var skillBars = document.querySelectorAll(".skill-bar");
-
-  skillBars.forEach(function (bar) {
-    var name = bar.getAttribute("data-skill") || "";
-    var level = parseInt(bar.getAttribute("data-level"), 10) || 0;
-
-    var head = document.createElement("div");
-    head.className = "skill-bar-head";
-
-    var nameEl = document.createElement("span");
-    nameEl.className = "skill-name";
-    nameEl.textContent = name;
-
-    var pctEl = document.createElement("span");
-    pctEl.className = "skill-pct mono";
-    pctEl.textContent = "0%";
-
-    head.appendChild(nameEl);
-    head.appendChild(pctEl);
-
-    var track = document.createElement("div");
-    track.className = "skill-track";
-    var fill = document.createElement("div");
-    fill.className = "skill-fill";
-    track.appendChild(fill);
-
-    bar.appendChild(head);
-    bar.appendChild(track);
-
-    bar._level = level;
-    bar._fill = fill;
-    bar._pct = pctEl;
-  });
-
-  function animateSkillBar(bar) {
-    var level = bar._level;
-    bar._fill.style.width = level + "%";
-
-    if (prefersReducedMotion) {
-      bar._pct.textContent = level + "%";
-      return;
-    }
-
-    var start = null;
-    var duration = 1100;
-    function step(ts) {
-      if (!start) start = ts;
-      var progress = Math.min((ts - start) / duration, 1);
-      bar._pct.textContent = Math.round(progress * level) + "%";
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  if ("IntersectionObserver" in window) {
-    var skillObserver = new IntersectionObserver(
-      function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            animateSkillBar(entry.target);
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.4 }
+    menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
     );
-    skillBars.forEach(function (bar) {
-      skillObserver.observe(bar);
-    });
-  } else {
-    skillBars.forEach(animateSkillBar);
-  }
 
-  /* ---------- 7. Animated achievement counters ---------- */
-  var statNumbers = document.querySelectorAll(".stat-number");
-
-  function animateCount(el) {
-    if (el.hasAttribute("data-static")) {
-      el.textContent = el.getAttribute("data-static");
-      return;
-    }
-    var target = parseFloat(el.getAttribute("data-count"));
-    var isDecimal = el.getAttribute("data-decimal") === "true";
-
-    if (prefersReducedMotion || isNaN(target)) {
-      el.textContent = isDecimal ? target.toFixed(1) : String(target);
-      return;
-    }
-
-    var start = null;
-    var duration = 1200;
-    function step(ts) {
-      if (!start) start = ts;
-      var progress = Math.min((ts - start) / duration, 1);
-      var current = progress * target;
-      el.textContent = isDecimal
-        ? current.toFixed(1)
-        : Math.round(current).toString();
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = isDecimal ? target.toFixed(1) : String(target);
-    }
-    requestAnimationFrame(step);
-  }
-
-  if ("IntersectionObserver" in window) {
-    var statObserver = new IntersectionObserver(
-      function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            animateCount(entry.target);
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen
+            ? "Close navigation menu"
+            : "Open navigation menu"
     );
-    statNumbers.forEach(function (el) {
-      statObserver.observe(el);
+}
+
+
+/*
+    Mobile menu button
+*/
+if (menuToggle) {
+
+    menuToggle.addEventListener(
+        "click",
+        toggleMobileMenu
+    );
+
+}
+
+
+/* =========================================================
+   4. CLOSE MOBILE MENU
+========================================================= */
+
+function closeMobileMenu() {
+
+    if (!menuToggle || !navMenu) {
+        return;
+    }
+
+    menuToggle.classList.remove("active");
+
+    navMenu.classList.remove("active");
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    menuToggle.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+    );
+}
+
+
+/*
+    Close menu when navigation link is clicked
+*/
+navLinks.forEach((link) => {
+
+    link.addEventListener(
+        "click",
+        () => {
+
+            closeMobileMenu();
+
+        }
+    );
+
+});
+
+
+/*
+    Close menu when user clicks outside it
+*/
+document.addEventListener(
+    "click",
+    (event) => {
+
+        if (!menuToggle || !navMenu) {
+            return;
+        }
+
+        const clickedInsideMenu =
+            navMenu.contains(event.target);
+
+        const clickedMenuButton =
+            menuToggle.contains(event.target);
+
+        if (
+            navMenu.classList.contains("active") &&
+            !clickedInsideMenu &&
+            !clickedMenuButton
+        ) {
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+/*
+    Close menu with Escape key
+*/
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (event.key === "Escape") {
+
+            closeMobileMenu();
+
+            if (themeToggle) {
+                themeToggle.blur();
+            }
+        }
+
+    }
+);
+
+
+/* =========================================================
+   5. ACTIVE NAVIGATION
+========================================================= */
+
+
+/*
+    Highlight the navigation item
+    belonging to the current section.
+*/
+function updateActiveNavigation() {
+
+    if (!sections.length || !navLinks.length) {
+        return;
+    }
+
+    const currentScrollPosition =
+        window.scrollY + 180;
+
+    let currentSectionId = "home";
+
+    sections.forEach((section) => {
+
+        const sectionTop =
+            section.offsetTop;
+
+        const sectionHeight =
+            section.offsetHeight;
+
+        if (
+            currentScrollPosition >= sectionTop &&
+            currentScrollPosition <
+                sectionTop + sectionHeight
+        ) {
+
+            currentSectionId =
+                section.id;
+        }
+
     });
-  } else {
-    statNumbers.forEach(animateCount);
-  }
 
-  /* ---------- 8. Cursor-tilt for glass cards ---------- */
-  if (!prefersReducedMotion && !isTouchDevice) {
-    var tiltCards = document.querySelectorAll(".tilt-card");
 
-    tiltCards.forEach(function (card) {
-      var bounds;
+    navLinks.forEach((link) => {
 
-      card.addEventListener("mouseenter", function () {
-        bounds = card.getBoundingClientRect();
-      });
+        const targetId =
+            link.getAttribute("href");
 
-      card.addEventListener("mousemove", function (e) {
-        if (!bounds) bounds = card.getBoundingClientRect();
-        var x = (e.clientX - bounds.left) / bounds.width - 0.5;
-        var y = (e.clientY - bounds.top) / bounds.height - 0.5;
-        var rotateY = x * 14;
-        var rotateX = y * -14;
-        card.style.transform =
-          "perspective(1000px) rotateX(" +
-          rotateX.toFixed(2) +
-          "deg) rotateY(" +
-          rotateY.toFixed(2) +
-          "deg) translateY(-4px)";
-      });
+        link.classList.toggle(
+            "active",
+            targetId === `#${currentSectionId}`
+        );
 
-      card.addEventListener("mouseleave", function () {
-        card.style.transform =
-          "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
-      });
     });
-  }
 
-  /* ---------- 9. Footer year ---------- */
-  var yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-})();
+}
+
+
+/*
+    Run on scroll
+*/
+window.addEventListener(
+    "scroll",
+    updateActiveNavigation,
+    { passive: true }
+);
+
+
+/*
+    Run once after page loads
+*/
+window.addEventListener(
+    "load",
+    updateActiveNavigation
+);
+
+
+/* =========================================================
+   6. STICKY HEADER EFFECT
+========================================================= */
+
+
+/*
+    Adds a small shadow when the user
+    has moved away from the top.
+*/
+function updateHeaderState() {
+
+    if (!siteHeader) {
+        return;
+    }
+
+    if (window.scrollY > 20) {
+
+        siteHeader.classList.add(
+            "scrolled"
+        );
+
+    } else {
+
+        siteHeader.classList.remove(
+            "scrolled"
+        );
+
+    }
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateHeaderState,
+    { passive: true }
+);
+
+updateHeaderState();
+
+
+/* =========================================================
+   7. SMOOTH INTERNAL NAVIGATION
+========================================================= */
+
+
+/*
+    Handle internal anchor navigation manually.
+    This gives us consistent behavior with
+    the fixed header.
+*/
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach((link) => {
+
+    link.addEventListener(
+        "click",
+        (event) => {
+
+            const targetSelector =
+                link.getAttribute("href");
+
+            if (
+                !targetSelector ||
+                targetSelector === "#"
+            ) {
+                return;
+            }
+
+            const targetElement =
+                document.querySelector(
+                    targetSelector
+                );
+
+            if (!targetElement) {
+                return;
+            }
+
+            event.preventDefault();
+
+            const headerHeight =
+                siteHeader
+                    ? siteHeader.offsetHeight
+                    : 0;
+
+            const targetPosition =
+                targetElement.getBoundingClientRect().top +
+                window.scrollY -
+                headerHeight -
+                15;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
+            });
+
+            closeMobileMenu();
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   8. SCROLL REVEAL ANIMATION
+========================================================= */
+
+
+/*
+    Add reveal classes dynamically so the HTML
+    does not become unnecessarily complicated.
+*/
+
+const revealElements = document.querySelectorAll(
+    ".section-heading, " +
+    ".about-content, " +
+    ".snapshot-card, " +
+    ".skill-card, " +
+    ".project-card, " +
+    ".certification-card, " +
+    ".education-item, " +
+    ".conference-card, " +
+    ".soft-skills-wrapper, " +
+    ".contact-intro, " +
+    ".contact-card"
+);
+
+
+/*
+    Create animation CSS dynamically.
+    This keeps animation behavior in one place.
+*/
+const revealStyle =
+    document.createElement("style");
+
+revealStyle.textContent = `
+    .js-reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+            opacity 0.7s ease,
+            transform 0.7s ease;
+    }
+
+    .js-reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .site-header.scrolled {
+        box-shadow:
+            0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    [data-theme="dark"] .site-header.scrolled {
+        box-shadow:
+            0 8px 30px rgba(0, 0, 0, 0.28);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .js-reveal {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+
+    }
+`;
+
+document.head.appendChild(
+    revealStyle
+);
+
+
+/*
+    Give each element the reveal class.
+*/
+revealElements.forEach(
+    (element) => {
+
+        element.classList.add(
+            "js-reveal"
+        );
+
+    }
+);
+
+
+/*
+    Intersection Observer
+*/
+if ("IntersectionObserver" in window) {
+
+    const revealObserver =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(
+                    (entry) => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "is-visible"
+                            );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -40px 0px"
+            }
+        );
+
+
+    revealElements.forEach(
+        (element) => {
+
+            revealObserver.observe(
+                element
+            );
+
+        }
+    );
+
+} else {
+
+    /*
+        Fallback for browsers without
+        IntersectionObserver.
+    */
+    revealElements.forEach(
+        (element) => {
+
+            element.classList.add(
+                "is-visible"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   9. PROJECT CARD INTERACTION
+========================================================= */
+
+
+/*
+    Prevent placeholder links from behaving
+    like real links.
+*/
+document.querySelectorAll(
+    ".placeholder-link"
+).forEach((placeholder) => {
+
+    placeholder.addEventListener(
+        "click",
+        (event) => {
+
+            event.preventDefault();
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   10. WINDOW RESIZE
+========================================================= */
+
+
+/*
+    Close mobile menu if the screen becomes
+    desktop-sized.
+*/
+window.addEventListener(
+    "resize",
+    () => {
+
+        if (
+            window.innerWidth > 768
+        ) {
+
+            closeMobileMenu();
+
+        }
+
+        updateActiveNavigation();
+
+    }
+);
+
+
+/* =========================================================
+   11. IMAGE ERROR HANDLING
+========================================================= */
+
+
+/*
+    Show a graceful fallback if the
+    profile image cannot be loaded.
+*/
+const profileImage =
+    document.querySelector(
+        ".hero-image"
+    );
+
+if (profileImage) {
+
+    profileImage.addEventListener(
+        "error",
+        () => {
+
+            profileImage.style.display =
+                "none";
+
+            const imageFrame =
+                profileImage.parentElement;
+
+            if (imageFrame) {
+
+                imageFrame.setAttribute(
+                    "data-image-error",
+                    "true"
+                );
+
+                imageFrame.insertAdjacentHTML(
+                    "beforeend",
+                    `
+                    <div
+                        style="
+                            min-height: 420px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            padding: 30px;
+                            color: var(--text-secondary);
+                            font-size: 13px;
+                        "
+                    >
+                        Profile image could not be loaded.
+                    </div>
+                    `
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   12. INITIAL PAGE STATE
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        /*
+            Ensure the page starts from the top
+            when loaded without a hash.
+        */
+        if (!window.location.hash) {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "auto"
+            });
+
+        }
+
+        updateActiveNavigation();
+        updateHeaderState();
+
+    }
+);
