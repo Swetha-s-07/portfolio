@@ -1,1513 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- =========================
-         BASIC META INFORMATION
-    ========================== -->
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Swetha S - Computer Science Engineer, Python Developer and AI/ML Enthusiast specializing in software development, full-stack applications, databases and deep learning.">
-
-    <meta name="keywords"
-          content="Swetha S, Computer Science Engineer, Python Developer, Java Developer, AI ML, Software Developer, Full Stack Developer, MySQL, Flask">
-
-    <meta name="author"
-          content="Swetha S">
-
-    <!-- =========================
-         OPEN GRAPH
-    ========================== -->
-    <meta property="og:title"
-          content="Swetha S | Computer Science Engineer | Python Developer | AI/ML Enthusiast">
-
-    <meta property="og:description"
-          content="Professional portfolio of Swetha S - Computer Science Engineer, Python Developer and AI/ML Enthusiast.">
-
-    <meta property="og:type"
-          content="website">
-
-    <meta property="og:image"
-          content="assets/images/swetha-profile.jpg">
-
-    <!-- =========================
-         PAGE TITLE
-    ========================== -->
-    <title>
-        Swetha S | Computer Science Engineer | Python Developer | AI/ML Enthusiast
-    </title>
-
-    <!-- =========================
-         FAVICON
-    ========================== -->
-    <link rel="icon"
-          type="image/png"
-          href="assets/icons/favicon.png">
-
-    <!-- =========================
-         STYLESHEET
-    ========================== -->
-    <link rel="stylesheet"
-          href="css/style.css">
-
-    <!-- =========================
-         OPTIONAL FONT PRECONNECT
-    ========================== -->
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional portfolio of Swetha S — Computer Science Engineer, Python Developer and Frontend Developer.">
+  <meta name="author" content="Swetha S">
+  <title>Swetha S | Computer Science Engineer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <header class="site-header" id="top">
+    <nav class="navbar container" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Swetha S home">Swetha S<span>.</span></a>
 
-    <!-- =========================================================
-         HEADER / NAVIGATION
-    ========================================================== -->
-    <header class="site-header" id="site-header">
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
+          <span class="theme-icon" aria-hidden="true">◐</span>
+          <span id="themeLabel">Light Blue</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
 
-        <nav class="navbar" aria-label="Primary Navigation">
+      <div class="nav-menu" id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#conference">Conference</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-            <!-- Logo / Brand -->
-            <a href="#home"
-               class="navbar-brand"
-               aria-label="Swetha S Home">
-                Swetha<span>S</span>
-            </a>
+  <main>
+    <section class="hero section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow">COMPUTER SCIENCE ENGINEER</p>
+          <h1>Swetha <span>S.</span></h1>
+          <h2>Python Developer <span>|</span> Frontend Developer</h2>
+          <p class="hero-text">
+            Computer Science and Engineering graduate with a strong academic foundation in programming,
+            data structures, object-oriented programming, and software development.
+          </p>
 
-            <!-- Desktop Navigation -->
-            <div class="nav-menu" id="nav-menu">
+          <div class="skill-strip" aria-label="Key technical skills">
+            <span>Java</span>
+            <span>Python</span>
+            <span>C</span>
+            <span>MySQL</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
 
-                <a href="#home" class="nav-link active">Home</a>
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#projects">View Projects <span>→</span></a>
+            <a class="btn btn-primary" href="Swetha_S_Resume.pdf" download>Download Resume</a>
+          </div>
 
-                <a href="#about" class="nav-link">About</a>
+        
+        </div>
 
-                <a href="#skills" class="nav-link">Skills</a>
-
-                <a href="#projects" class="nav-link">Projects</a>
-
-                <a href="#certifications" class="nav-link">
-                    Certifications
-                </a>
-
-                <a href="#education" class="nav-link">
-                    Education
-                </a>
-
-                <a href="#conference" class="nav-link">
-                    Conference
-                </a>
-
-                <a href="#contact" class="nav-link">
-                    Contact
-                </a>
-
+        <div class="hero-photo-wrap reveal">
+          <div class="photo-frame">
+            <img src="swetha_professional_photo.jpeg" alt="Professional portrait of Swetha S">
+          </div>
+          <div class="availability-card">
+            <span class="status-dot"></span>
+            <div>
+              <strong>Open to opportunities</strong>
+              <small>Software Development</small>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <!-- Header Actions -->
-            <div class="nav-actions">
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">01 — PROFILE</p>
+          <h2>About</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p>
+              Computer Science and Engineering graduate with a strong academic foundation in programming,
+              data structures, object-oriented programming, and software development.
+            </p>
+            <p>
+              Hands-on experience in full-stack application development, RFID-based tracking systems,
+              and deep learning for medical image analysis. Skilled in Java, Python, C, MySQL, HTML,
+              and CSS, with strong problem-solving and analytical abilities.
+            </p>
+            <p>
+              Oracle Certified Professional in Java SE 17 with a passion for continuous learning and
+              developing efficient, reliable software solutions.
+            </p>
+          </div>
+          <div class="profile-facts reveal">
+            <div class="fact"><span>Degree</span><strong>B.E. Computer Science & Engineering</strong></div>
+            <div class="fact"><span>University</span><strong>Saveetha University</strong></div>
+            <div class="fact"><span>CGPA</span><strong>8.2 / 10</strong></div>
+            <div class="fact"><span>Location</span><strong>Chennai</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                <!-- Resume Button -->
-                <a href="assets/resume/Swetha_Resume.pdf"
-                   class="btn btn-nav"
-                   download
-                   target="_blank"
-                   rel="noopener">
-                    Download Resume
-                </a>
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">02 — CAPABILITIES</p>
+          <h2>Technical Skills</h2>
+        </div>
 
-                <!-- Theme Toggle -->
-                <button
-                    type="button"
-                    class="theme-toggle"
-                    id="theme-toggle"
-                    aria-label="Switch theme"
-                    title="Switch theme">
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <span class="skill-number">01</span>
+            <h3>Programming</h3>
+            <p>Java (Oracle Certified), Python, C</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-number">02</span>
+            <h3>Database</h3>
+            <p>MySQL, Relational Database Management, CRUD Operations, Schema Design, Query Optimization</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-number">03</span>
+            <h3>Backend & Web</h3>
+            <p>Flask, REST API, HTML, CSS, JavaScript</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-number">04</span>
+            <h3>Core CS</h3>
+            <p>Data Structures & Algorithms, Object-Oriented Programming, Problem Solving, Algorithm Design, Complexity Analysis</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-number">05</span>
+            <h3>Software Development</h3>
+            <p>Software Development Life Cycle (SDLC), Software Testing</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-number">06</span>
+            <h3>Domain Expertise</h3>
+            <p>Software Development, Machine Learning, Deep Learning, Computer Vision, Medical Image Analysis</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-number">07</span>
+            <h3>Developer Tools</h3>
+            <p>VS Code, Git, GitHub</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-number">08</span>
+            <h3>Libraries</h3>
+            <p>Pandas, NumPy</p>
+          </article>
+        </div>
 
-                    <span class="theme-icon"
-                          id="theme-icon"
-                          aria-hidden="true">
-                        ☾
-                    </span>
+        <div class="soft-skills reveal">
+          <span class="eyebrow">SOFT SKILLS</span>
+          <div class="tag-list">
+            <span>Communication</span>
+            <span>Team Collaboration</span>
+            <span>Adaptability & Quick Learning</span>
+            <span>Time Management</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                </button>
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">03 — SELECTED WORK</p>
+          <h2>Projects</h2>
+          <p>Project details are presented only from the uploaded resume. No unprovided project links or implementation claims have been added.</p>
+        </div>
 
-                <!-- Mobile Menu Button -->
-                <button
-                    type="button"
-                    class="menu-toggle"
-                    id="menu-toggle"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false"
-                    aria-controls="nav-menu">
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                </button>
-
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-top">
+              <span class="project-index">01</span>
+              <span class="project-type">Android Application</span>
             </div>
-
-        </nav>
-
-    </header>
-
-
-    <!-- =========================================================
-         MAIN CONTENT
-    ========================================================== -->
-    <main>
-
-        <!-- =====================================================
-             HERO SECTION
-        ====================================================== -->
-        <section
-            class="hero section"
-            id="home"
-            aria-labelledby="hero-title">
-
-            <div class="container hero-container">
-
-                <!-- Hero Content -->
-                <div class="hero-content">
-
-                    <p class="hero-greeting">
-                        Hello, I'm
-                    </p>
-
-                    <h1 id="hero-title">
-                        Swetha S
-                    </h1>
-
-                    <h2 class="hero-title">
-                        Computer Science Engineer
-                        <span>|</span>
-                        Python Developer
-                        <span>|</span>
-                        AI/ML Enthusiast
-                    </h2>
-
-                    <p class="hero-description">
-                        Computer Science and Engineering graduate with a strong
-                        foundation in programming, data structures,
-                        object-oriented programming and software development,
-                        with interests in full-stack application development
-                        and AI/ML.
-                    </p>
-
-                    <!-- Hero Actions -->
-                    <div class="hero-actions">
-
-                        <a href="#contact"
-                           class="btn btn-primary">
-                            Hire Me
-                        </a>
-
-                        <a href="assets/resume/Swetha_Resume.pdf"
-                           class="btn btn-secondary"
-                           download
-                           target="_blank"
-                           rel="noopener">
-                            Download Resume
-                        </a>
-
-                        <a href="#projects"
-                           class="btn btn-text">
-                            View Projects
-                            <span aria-hidden="true">→</span>
-                        </a>
-
-                    </div>
-
-                    <!-- Quick Technical Highlights -->
-                    <div class="hero-highlights"
-                         aria-label="Professional highlights">
-
-                        <div class="hero-highlight">
-                            <strong>Java</strong>
-                            <span>Certified</span>
-                        </div>
-
-                        <div class="hero-highlight">
-                            <strong>Python</strong>
-                            <span>Development</span>
-                        </div>
-
-                        <div class="hero-highlight">
-                            <strong>AI/ML</strong>
-                            <span>Interest</span>
-                        </div>
-
-                        <div class="hero-highlight">
-                            <strong>MySQL</strong>
-                            <span>Database</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Hero Image -->
-                <div class="hero-image-wrapper">
-
-                    <div class="hero-image-frame">
-
-                        <img
-                            src="assets/images/swetha-profile.jpg"
-                            alt="Professional portrait of Swetha S"
-                            class="hero-image"
-                            loading="eager">
-
-                    </div>
-
-                </div>
-
+            <h3>Skin Disease Classification App</h3>
+            <p>
+              Developed an AI-based skin disease classification application using a deep learning model,
+              with Flutter frontend and Flask backend for prediction. Integrated XAMPP/MySQL for database
+              management and storage of user and prediction information.
+            </p>
+            <div class="tech-list">
+              <span>Flutter</span><span>Flask</span><span>XAMPP/MySQL</span><span>Deep Learning</span>
             </div>
+            <span class="project-link unavailable">Project link not provided</span>
+          </article>
 
-        </section>
-
-
-        <!-- =====================================================
-             ABOUT SECTION
-        ====================================================== -->
-        <section
-            class="about section"
-            id="about"
-            aria-labelledby="about-title">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-label">
-                        About
-                    </span>
-
-                    <h2 id="about-title">
-                        Building a strong foundation for
-                        professional software development.
-                    </h2>
-
-                </div>
-
-
-                <div class="about-grid">
-
-                    <!-- About Text -->
-                    <div class="about-content">
-
-                        <p>
-                            I am a Computer Science and Engineering graduate
-                            with a strong academic foundation in programming,
-                            data structures, object-oriented programming and
-                            software development.
-                        </p>
-
-                        <p>
-                            My technical interests include Java, Python, MySQL,
-                            web technologies, full-stack application
-                            development, software testing and AI/ML. I have
-                            also worked on projects involving AI-based
-                            applications, database-driven systems and deep
-                            learning.
-                        </p>
-
-                        <p>
-                            I enjoy solving technical problems, strengthening
-                            my programming skills and continuously learning
-                            technologies that can help me build efficient and
-                            reliable software solutions.
-                        </p>
-
-                    </div>
-
-
-                    <!-- Professional Snapshot -->
-                    <div class="snapshot">
-
-                        <div class="snapshot-card">
-
-                            <span class="snapshot-label">
-                                Education
-                            </span>
-
-                            <strong>
-                                B.E. Computer Science & Engineering
-                            </strong>
-
-                        </div>
-
-
-                        <div class="snapshot-card">
-
-                            <span class="snapshot-label">
-                                Academic Performance
-                            </span>
-
-                            <strong>
-                                CGPA 8.2/ 10
-                            </strong>
-
-                        </div>
-
-
-                        <div class="snapshot-card">
-
-                            <span class="snapshot-label">
-                                Certification
-                            </span>
-
-                            <strong>
-                                Oracle Certified Professional –
-                                Java SE 17 Developer
-                            </strong>
-
-                        </div>
-
-
-                        <div class="snapshot-card">
-
-                            <span class="snapshot-label">
-                                Professional Focus
-                            </span>
-
-                            <strong>
-                                Software Development & AI/ML
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+          <article class="project-card reveal">
+            <div class="project-top">
+              <span class="project-index">02</span>
+              <span class="project-type">Full-Stack Web Development</span>
             </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             SKILLS SECTION
-        ====================================================== -->
-        <section
-            class="skills section"
-            id="skills"
-            aria-labelledby="skills-title">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-label">
-                        Technical Skills
-                    </span>
-
-                    <h2 id="skills-title">
-                        Technologies and areas of expertise.
-                    </h2>
-
-                    <p>
-                        A structured overview of the technical skills,
-                        development concepts and tools included in my
-                        professional foundation.
-                    </p>
-
-                </div>
-
-
-                <div class="skills-grid">
-
-                    <!-- Programming -->
-                    <article class="skill-card">
-
-                        <div class="skill-card-header">
-                            <span class="skill-number">01</span>
-
-                            <h3>
-                                Programming Languages
-                            </h3>
-                        </div>
-
-                        <div class="skill-tags">
-
-                            <span>Java</span>
-                            <span>Python</span>
-                
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- Database -->
-                    <article class="skill-card">
-
-                        <div class="skill-card-header">
-                            <span class="skill-number">02</span>
-
-                            <h3>
-                                Database
-                            </h3>
-                        </div>
-
-                        <div class="skill-tags">
-
-                            <span>MySQL</span>
-                            <span>Relational Database Management</span>
-                            <span>CRUD Operations</span>
-                            <span>Schema Design</span>
-                            <span>Query Optimization</span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- Backend & Web -->
-                    <article class="skill-card">
-
-                        <div class="skill-card-header">
-                            <span class="skill-number">03</span>
-
-                            <h3>
-                                Backend & Web
-                            </h3>
-                        </div>
-
-                        <div class="skill-tags">
-
-                            <span>Flask</span>
-                            <span>REST API</span>
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- Core CS -->
-                    <article class="skill-card">
-
-                        <div class="skill-card-header">
-                            <span class="skill-number">04</span>
-
-                            <h3>
-                                Core Computer Science
-                            </h3>
-                        </div>
-
-                        <div class="skill-tags">
-
-                            <span>Data Structures & Algorithms</span>
-                            <span>Object-Oriented Programming</span>
-                            <span>Problem Solving</span>
-                            <span>Algorithm Design</span>
-                            <span>Complexity Analysis</span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- Software Development -->
-                    <article class="skill-card">
-
-                        <div class="skill-card-header">
-                            <span class="skill-number">05</span>
-
-                            <h3>
-                                Software Development
-                            </h3>
-                        </div>
-
-                        <div class="skill-tags">
-
-                            <span>Software Development Life Cycle</span>
-                            <span>Software Testing</span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- AI / ML -->
-                    <article class="skill-card">
-
-                        <div class="skill-card-header">
-                            <span class="skill-number">06</span>
-
-                            <h3>
-                                AI / ML Domain
-                            </h3>
-                        </div>
-
-                        <div class="skill-tags">
-
-                            <span>Machine Learning</span>
-                            <span>Deep Learning</span>
-                            <span>Computer Vision</span>
-                            <span>Medical Image Analysis</span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- Developer Tools -->
-                    <article class="skill-card">
-
-                        <div class="skill-card-header">
-                            <span class="skill-number">07</span>
-
-                            <h3>
-                                Developer Tools
-                            </h3>
-                        </div>
-
-                        <div class="skill-tags">
-
-                            <span>VS Code</span>
-                            <span>Postman</span>
-                            <span>Git</span>
-                            <span>GitHub</span>
-                            <span>Docker</span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- Libraries -->
-                    <article class="skill-card">
-
-                        <div class="skill-card-header">
-                            <span class="skill-number">08</span>
-
-                            <h3>
-                                Libraries & Framework Ecosystem
-                            </h3>
-                        </div>
-
-                        <div class="skill-tags">
-
-                            <span>Pandas</span>
-                            <span>NumPy</span>
-                            <span>Scikit-Learn</span>
-                            <span>TensorFlow</span>
-                            <span>PyTorch</span>
-                            <span>Matplotlib</span>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
+            <h3>Diet & Calorie Tracking Website</h3>
+            <p>
+              Designed and developed a full-stack web application for recording meals, monitoring calorie
+              intake, and analyzing nutritional information. Implemented user authentication, BMI calculation,
+              progress visualization, and personalized goal-tracking features.
+            </p>
+            <div class="tech-list">
+              <span>Full-Stack Web Development</span>
             </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             PROJECTS SECTION
-        ====================================================== -->
-        <section
-            class="projects section"
-            id="projects"
-            aria-labelledby="projects-title">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-label">
-                        Projects
-                    </span>
-
-                    <h2 id="projects-title">
-                        Selected technical projects.
-                    </h2>
-
-                    <p>
-                        A selection of projects demonstrating application
-                        development, databases, web technologies and AI/ML.
-                    </p>
-
-                </div>
-
-
-                <div class="projects-grid">
-
-                    <!-- Project 1 -->
-                    <article class="project-card">
-
-                        <div class="project-card-top">
-
-                            <span class="project-category">
-                                Android Application · AI/ML
-                            </span>
-
-                            <span class="project-index">
-                                01
-                            </span>
-
-                        </div>
-
-                        <div class="project-content">
-
-                            <h3>
-                                Skin Disease Classification App
-                            </h3>
-
-                            <p>
-                                An AI-based skin disease classification
-                                application using a deep learning model,
-                                with Flutter frontend and Flask backend
-                                for prediction.
-                            </p>
-
-
-                            <div class="project-features">
-
-                                <h4>
-                                    Key Features
-                                </h4>
-
-                                <ul>
-
-                                    <li>
-                                        Flutter frontend
-                                    </li>
-
-                                    <li>
-                                        Flask backend
-                                    </li>
-
-                                    <li>
-                                        Deep learning-based prediction
-                                    </li>
-
-                                    <li>
-                                        XAMPP/MySQL database management
-                                    </li>
-
-                                    <li>
-                                        User and prediction information
-                                        storage
-                                    </li>
-
-                                </ul>
-
-                            </div>
-
-
-                            <div class="project-tags">
-
-                                <span>Flutter</span>
-                                <span>Flask</span>
-                                <span>XAMPP</span>
-                                <span>MySQL</span>
-                                <span>Deep Learning</span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-actions">
-
-                            <span class="project-link placeholder-link"
-                                  aria-disabled="true">
-                                GitHub Link — Add URL
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- Project 2 -->
-                    <article class="project-card">
-
-                        <div class="project-card-top">
-
-                            <span class="project-category">
-                                Full-Stack Web Development
-                            </span>
-
-                            <span class="project-index">
-                                02
-                            </span>
-
-                        </div>
-
-                        <div class="project-content">
-
-                            <h3>
-                                Diet & Calorie Tracking Website
-                            </h3>
-
-                            <p>
-                                A full-stack web application designed for
-                                recording meals, monitoring calorie intake
-                                and analyzing nutritional information.
-                            </p>
-
-
-                            <div class="project-features">
-
-                                <h4>
-                                    Key Features
-                                </h4>
-
-                                <ul>
-
-                                    <li>
-                                        Meal recording
-                                    </li>
-
-                                    <li>
-                                        Calorie monitoring
-                                    </li>
-
-                                    <li>
-                                        Nutritional information
-                                    </li>
-
-                                    <li>
-                                        User authentication
-                                    </li>
-
-                                    <li>
-                                        BMI calculation
-                                    </li>
-
-                                    <li>
-                                        Progress visualization
-                                    </li>
-
-                                    <li>
-                                        Personalized goal tracking
-                                    </li>
-
-                                </ul>
-
-                            </div>
-
-
-                            <div class="project-tags">
-
-                                <span>Full Stack</span>
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                                <span>Database</span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-actions">
-
-                            <span class="project-link placeholder-link"
-                                  aria-disabled="true">
-                                GitHub Link — Add URL
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- Project 3 -->
-                    <article class="project-card">
-
-                        <div class="project-card-top">
-
-                            <span class="project-category">
-                                AI/ML · Web Application
-                            </span>
-
-                            <span class="project-index">
-                                03
-                            </span>
-
-                        </div>
-
-                        <div class="project-content">
-
-                            <h3>
-                                Pothole Detection Web Application
-                            </h3>
-
-                            <p>
-                                An AI-based pothole detection system using
-                                a deep learning model, with Streamlit for
-                                the frontend and Flask for backend
-                                processing.
-                            </p>
-
-
-                            <div class="project-features">
-
-                                <h4>
-                                    Key Features
-                                </h4>
-
-                                <ul>
-
-                                    <li>
-                                        AI-based pothole detection
-                                    </li>
-
-                                    <li>
-                                        Deep learning model
-                                    </li>
-
-                                    <li>
-                                        Streamlit frontend
-                                    </li>
-
-                                    <li>
-                                        Flask backend
-                                    </li>
-
-                                    <li>
-                                        XAMPP/MySQL integration
-                                    </li>
-
-                                    <li>
-                                        Detection-related information
-                                        storage
-                                    </li>
-
-                                </ul>
-
-                            </div>
-
-
-                            <div class="project-tags">
-
-                                <span>AI/ML</span>
-                                <span>Flask</span>
-                                <span>Streamlit</span>
-                                <span>XAMPP</span>
-                                <span>MySQL</span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-actions">
-
-                            <span class="project-link placeholder-link"
-                                  aria-disabled="true">
-                                GitHub Link — Add URL
-                            </span>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
+            <span class="project-link unavailable">Project link not provided</span>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <span class="project-index">03</span>
+              <span class="project-type">AI / ML</span>
             </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             CERTIFICATIONS SECTION
-        ====================================================== -->
-        <section
-            class="certifications section"
-            id="certifications"
-            aria-labelledby="certifications-title">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-label">
-                        Certifications
-                    </span>
-
-                    <h2 id="certifications-title">
-                        Professional certifications.
-                    </h2>
-
-                </div>
-
-
-                <div class="certifications-grid">
-
-                    <!-- Featured Certification -->
-                    <article class="certification-card featured">
-
-                        <div class="certification-icon"
-                             aria-hidden="true">
-                            ✦
-                        </div>
-
-                        <div class="certification-content">
-
-                            <span class="certification-label">
-                                Featured Certification
-                            </span>
-
-                            <h3>
-                                Oracle Certified Professional:
-                                Java SE 17 Developer
-                            </h3>
-
-                            <p class="certification-issuer">
-                                Oracle University
-                            </p>
-
-                            <p class="certification-date">
-                                February 2026
-                            </p>
-
-                        </div>
-
-                        <span class="certification-placeholder">
-                            Verification Link — Add URL
-                        </span>
-
-                    </article>
-
-
-                    <!-- SQL Certification -->
-                    <article class="certification-card">
-
-                        <div class="certification-icon"
-                             aria-hidden="true">
-                            ◈
-                        </div>
-
-                        <div class="certification-content">
-
-                            <span class="certification-label">
-                                Certification
-                            </span>
-
-                            <h3>
-                                SQL Certification
-                            </h3>
-
-                            <p class="certification-issuer">
-                                Udemy
-                            </p>
-
-                            <div class="certification-tags">
-
-                                <span>RDBMS</span>
-                                <span>Joins</span>
-                                <span>Normalization</span>
-                                <span>CRUD</span>
-                                <span>Schema Design</span>
-                                <span>Query Optimization</span>
-
-                            </div>
-
-                        </div>
-
-                        <span class="certification-placeholder">
-                            Verification Link — Add URL
-                        </span>
-
-                    </article>
-
-                </div>
-
+            <h3>Pothole Detection Web Application</h3>
+            <p>
+              Developed an AI-based pothole detection system using a deep learning model, with Streamlit
+              for the frontend and Flask for backend processing. Integrated XAMPP/MySQL for database
+              management and storing detection-related information.
+            </p>
+            <div class="tech-list">
+              <span>AI/ML</span><span>Flask</span><span>Streamlit</span><span>XAMPP/MySQL</span><span>Deep Learning</span>
             </div>
+            <span class="project-link unavailable">Project link not provided</span>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        </section>
-
-
-        <!-- =====================================================
-             EDUCATION SECTION
-        ====================================================== -->
-        <section
-            class="education section"
-            id="education"
-            aria-labelledby="education-title">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-label">
-                        Education
-                    </span>
-
-                    <h2 id="education-title">
-                        Academic background.
-                    </h2>
-
-                </div>
-
-
-                <div class="education-timeline">
-
-                    <!-- Degree -->
-                    <article class="education-item featured">
-
-                        <div class="education-marker">
-                            <span></span>
-                        </div>
-
-                        <div class="education-content">
-
-                            <span class="education-period">
-                                2022 – 2026
-                            </span>
-
-                            <h3>
-                                B.E. Computer Science and Engineering
-                            </h3>
-
-                            <h4>
-                                Saveetha School of Engineering,
-                                Saveetha University, Chennai
-                            </h4>
-
-                            <p class="education-score">
-                                CGPA: <strong>8.1 / 10</strong>
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- HSC -->
-                    <article class="education-item">
-
-                        <div class="education-marker">
-                            <span></span>
-                        </div>
-
-                        <div class="education-content">
-
-                            <span class="education-period">
-                                2020 – 2021
-                            </span>
-
-                            <h3>
-                                HSC
-                            </h3>
-
-                            <h4>
-                                AIM Matric Higher Secondary School,
-                                Tiruvannamalai
-                            </h4>
-
-                            <p>
-                                Tamil Nadu State Board
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
+    <section class="section section-alt" id="education">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">04 — ACADEMICS</p>
+          <h2>Education</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2022 — 2026</div>
+            <div class="timeline-content">
+              <h3>B.E., Computer Science and Engineering</h3>
+              <p>Saveetha School of Engineering, Saveetha University, Chennai</p>
+              <strong>CGPA: 8.2 / 10</strong>
             </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             CONFERENCE SECTION
-        ====================================================== -->
-        <section
-            class="conference section"
-            id="conference"
-            aria-labelledby="conference-title">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-label">
-                        Conference & Research
-                    </span>
-
-                    <h2 id="conference-title">
-                        Research presentation.
-                    </h2>
-
-                </div>
-
-
-                <article class="conference-card">
-
-                    <div class="conference-number">
-                        01
-                    </div>
-
-                    <div class="conference-content">
-
-                        <span class="conference-label">
-                            AIP International Conference
-                        </span>
-
-                        <h3>
-                            Evaluating Neuro-Fuzzy Systems and
-                            Deep Reinforcement Learning Approaches
-                        </h3>
-
-                        <p>
-                            Presented a paper focused on neuro-fuzzy systems
-                            and deep reinforcement learning applications in
-                            financial modelling and portfolio optimization.
-                        </p>
-
-
-                        <div class="conference-topics">
-
-                            <span>
-                                Neuro-Fuzzy Systems
-                            </span>
-
-                            <span>
-                                Deep Reinforcement Learning
-                            </span>
-
-                            <span>
-                                Financial Modelling
-                            </span>
-
-                            <span>
-                                Portfolio Optimization
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2020 — 2021</div>
+            <div class="timeline-content">
+              <h3>HSC</h3>
+              <p>AIM Matric Higher Secondary School, Tiruvannamalai</p>
+              <strong>Tamil Nadu State Board</strong>
             </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        </section>
-
-
-        <!-- =====================================================
-             SOFT SKILLS SECTION
-        ====================================================== -->
-        <section
-            class="soft-skills section"
-            id="soft-skills"
-            aria-labelledby="soft-skills-title">
-
-            <div class="container">
-
-                <div class="soft-skills-wrapper">
-
-                    <div>
-
-                        <span class="section-label">
-                            Professional Strengths
-                        </span>
-
-                        <h2 id="soft-skills-title">
-                            How I work.
-                        </h2>
-
-                    </div>
-
-
-                    <div class="soft-skills-list">
-
-                        <span>Communication</span>
-
-                        <span>Team Collaboration</span>
-
-                        <span>Adaptability & Quick Learning</span>
-
-                        <span>Time Management</span>
-
-                    </div>
-
-                </div>
-
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">05 — CREDENTIALS</p>
+          <h2>Certifications</h2>
+        </div>
+        <div class="credentials-grid">
+          <article class="credential-card reveal">
+            <span class="credential-icon">01</span>
+            <div>
+              <h3>Oracle Certified Professional: Java SE 17 Developer</h3>
+              <p>Oracle University</p>
+              <small>February 2026</small>
             </div>
+          </article>
+          <article class="credential-card reveal">
+            <span class="credential-icon">02</span>
+            <div>
+              <h3>SQL Certification</h3>
+              <p>Udemy</p>
+              <small>Relational Database Management, Joins, Normalization, CRUD Operations, Schema Design, Query Optimization</small>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        </section>
+    <section class="section section-alt" id="conference">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">06 — CONFERENCE</p>
+          <h2>Conference</h2>
+        </div>
+        <article class="conference-card reveal">
+          <div class="conference-number">AIP</div>
+          <div>
+            <h3>Evaluating Neuro-Fuzzy Systems and Deep Reinforcement Learning Approaches</h3>
+            <p>
+              Presented paper in an AIP International Conference focused on neuro-fuzzy systems and
+              deep reinforcement learning applications in financial modelling and portfolio optimization.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
 
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">07 — CONTACT</p>
+          <h2>Let's connect.</h2>
+          <p>For opportunities, project discussions, or professional enquiries, use the contact details below.</p>
+        </div>
+        <div class="contact-details reveal">
+          <a href="mailto:swethakavitha.2026@gmail.com" class="contact-row">
+            <span>Email</span>
+            <strong>swethakavitha.2026@gmail.com ↗</strong>
+          </a>
+          <a href="tel:+919043199526" class="contact-row">
+            <span>Phone</span>
+            <strong>+91 9043199526 ↗</strong>
+          </a>
+          <div class="contact-row">
+  <span>Profile</span>
+  <strong>
+    <a href="https://www.linkedin.com/in/swetha-s-swetha/"
+       target="_blank"
+       rel="noopener noreferrer">
+      LinkedIn ↗
+    </a>
+  </strong>
+</div>
+          <div class="contact-buttons">
 
-        <!-- =====================================================
-             CONTACT SECTION
-        ====================================================== -->
-        <section
-            class="contact section"
-            id="contact"
-            aria-labelledby="contact-title">
+<div class="contact-buttons">
 
-            <div class="container">
-
-                <div class="contact-wrapper">
-
-                    <!-- Contact Introduction -->
-                    <div class="contact-intro">
-
-                        <span class="section-label">
-                            Contact
-                        </span>
-
-                        <h2 id="contact-title">
-                            Let's Work Together
-                        </h2>
-
-                        <p>
-                            I am open to suitable opportunities in software
-                            development, Python development and related
-                            technology domains. Recruiters and hiring teams
-                            are welcome to get in touch to discuss relevant
-                            opportunities.
-                        </p>
-
-
-                        <!-- Main Email CTA -->
-                     <a
-    href="https://mail.google.com/mail/?view=cm&fs=1&to=swethakavitha.2026@gmail.com&su=Job%20Opportunity%20%E2%80%93%20Swetha%20S&body=Dear%20Swetha%2C%0A%0AI%20came%20across%20your%20portfolio%20profile%20and%20was%20impressed%20by%20your%20technical%20skills%20and%20project%20work.%20Your%20background%20in%20software%20development%2C%20Python%2C%20Java%2C%20AI%2FML%2C%20and%20application%20development%2C%20along%20with%20the%20projects%20you%20have%20worked%20on%2C%20caught%20my%20attention.%0A%0AI%20would%20like%20to%20discuss%20your%20profile%20further%20regarding%20a%20potential%20opportunity.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20connect.%0A%0ABest%20regards%2C%0A%5BRecruiter%20Name%5D%0A%5BCompany%20Name%5D%0A%5BContact%20Details%5D"
-    class="btn btn-primary contact-email-btn"
+  <a
+    href="https://mail.google.com/mail/?view=cm&fs=1&to=swethakavitha.2026@gmail.com&su=Job%20Opportunity%20-%20Recruitment%20Enquiry&body=Hello%20Swetha%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20was%20impressed%20by%20your%20technical%20skills%20and%20projects.%20Your%20profile%20appears%20to%20be%20a%20strong%20match%20for%20the%20opportunities%20we%20are%20currently%20considering.%0A%0AI%20would%20like%20to%20connect%20with%20you%20to%20discuss%20your%20skills%2C%20experience%2C%20and%20potential%20job%20opportunities%20with%20our%20organization.%0A%0APlease%20let%20me%20know%20a%20convenient%20time%20to%20connect.%0A%0ABest%20regards%2C%0ARecruitment%20Team"
     target="_blank"
-    rel="noopener noreferrer">
-    Send Me an Email
-</a>
+    rel="noopener noreferrer"
+    class="btn btn-primary">
+    Send Email ↗
+  </a>
 
-                    </div>
+  
 
+</div>
 
-                    <!-- Contact Information -->
-                    <div class="contact-details">
+</div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-                        <!-- Phone -->
-                        <a
-                            href="tel:+919043199526"
-                            class="contact-card">
-
-                            <span class="contact-icon"
-                                  aria-hidden="true">
-                                ☎
-                            </span>
-
-                            <div>
-
-                                <span class="contact-label">
-                                    Phone
-                                </span>
-
-                                <strong>
-                                    +91 9043199526
-                                </strong>
-
-                            </div>
-
-                        </a>
-
-
-                        <!-- Email -->
-                        <a
-                            href="mailto:swethakavitha.2026@gmail.com"
-                            class="contact-card">
-
-                            <span class="contact-icon"
-                                  aria-hidden="true">
-                                @
-                            </span>
-
-                            <div>
-
-                                <span class="contact-label">
-                                    Email
-                                </span>
-
-                                <strong>
-                                    swethakavitha.2026@gmail.com
-                                </strong>
-
-                            </div>
-
-                        </a>
-
-
-                        <!-- LinkedIn Placeholder -->
-                        <div class="contact-card placeholder-contact">
-
-                            <span class="contact-icon"
-                                  aria-hidden="true">
-                                in
-                            </span>
-
-                            <div>
-
-                                <span class="contact-label">
-                                    LinkedIn
-                                </span>
-
-                                <strong>
-                                    https://www.linkedin.com/in/swetha-s-swetha/
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- GitHub Placeholder -->
-                        <div class="contact-card placeholder-contact">
-
-                            <span class="contact-icon"
-                                  aria-hidden="true">
-                                &lt;/&gt;
-                            </span>
-
-                            <div>
-
-                                <span class="contact-label">
-                                    GitHub
-                                </span>
-
-                                <strong>
-                                    https://github.com/Swetha-s-07
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-    <footer class="site-footer">
-
-        <div class="container footer-container">
-
-            <!-- Footer Brand -->
-            <div class="footer-brand">
-
-                <a href="#home"
-                   class="footer-name">
-                    Swetha S
-                </a>
-
-                <p>
-                    Computer Science Engineer |
-                    Python Developer |
-                    AI/ML Enthusiast
-                </p>
-
-            </div>
-
-
-            <!-- Footer Contact -->
-            <a
-    href="https://www.linkedin.com/in/swetha-s-swetha/"
-    class="contact-card"
-    target="_blank"
-    rel="noopener noreferrer">
-
-    <span class="contact-icon" aria-hidden="true">
-        in
-    </span>
-
-    <div>
-
-        <span class="contact-label">
-            LinkedIn
-        </span>
-
-        <strong>
-            LinkedIn Profile
-        </strong>
-
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Swetha S</span>
+      <a href="#top">Back to top ↑</a>
     </div>
+  </footer>
 
-</a>
-
-
-            <!-- Footer Navigation -->
-            <nav class="footer-nav"
-                 aria-label="Footer Navigation">
-
-                <a href="#home">Home</a>
-
-                <a href="#about">About</a>
-
-                <a href="#skills">Skills</a>
-
-                <a href="#projects">Projects</a>
-
-                <a href="#certifications">
-                    Certifications
-                </a>
-
-                <a href="#education">
-                    Education
-                </a>
-
-                <a href="#conference">
-                    Conference
-                </a>
-
-                <a href="#contact">
-                    Contact
-                </a>
-
-            </nav>
-
-        </div>
-
-
-        <!-- Copyright -->
-        <div class="footer-bottom">
-
-            <div class="container">
-
-                <p>
-                    © 2026 Swetha S. All rights reserved.
-                </p>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
-    <script src="js/script.js"></script>
-
+  <script src="JavaScript.js"></script>
 </body>
 </html>
