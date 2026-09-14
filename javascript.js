@@ -195,3 +195,48 @@ if (yearElement) {
   yearElement.textContent =
     new Date().getFullYear();
 }
+const sendEmailBtn = document.getElementById("sendEmailBtn");
+
+if (sendEmailBtn) {
+  sendEmailBtn.addEventListener("click", function (event) {
+
+    const email = "swethakavitha.2026@gmail.com";
+    const subject = "Job Opportunity - Recruitment Enquiry";
+    const body =
+      "Hello Swetha,\n\n" +
+      "I came across your portfolio and was impressed by your technical skills and projects.\n\n" +
+      "I would like to connect with you to discuss potential job opportunities.\n\n" +
+      "Please let me know a convenient time to connect.\n\n" +
+      "Best regards,\n" +
+      "Recruitment Team";
+
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isAndroid || isIOS) {
+      event.preventDefault();
+
+      const gmailAppURL =
+        "googlegmail://co" +
+        "?to=" + encodeURIComponent(email) +
+        "&subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      const mailtoURL =
+        "mailto:" +
+        email +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      // Try Gmail app
+      window.location.href = gmailAppURL;
+
+      // If Gmail app is not available, fall back to email app
+      setTimeout(function () {
+        window.location.href = mailtoURL;
+      }, 1500);
+
+    }
+    // Laptop keeps the normal Gmail web link
+  });
+}
