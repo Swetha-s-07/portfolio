@@ -198,45 +198,49 @@ if (yearElement) {
 const sendEmailBtn = document.getElementById("sendEmailBtn");
 
 if (sendEmailBtn) {
-  sendEmailBtn.addEventListener("click", function (event) {
+    sendEmailBtn.addEventListener("click", function (event) {
 
-    const email = "swethakavitha.2026@gmail.com";
-    const subject = "Job Opportunity - Recruitment Enquiry";
-    const body =
-      "Hello Swetha,\n\n" +
-      "I came across your portfolio and was impressed by your technical skills and projects.\n\n" +
-      "I would like to connect with you to discuss potential job opportunities.\n\n" +
-      "Please let me know a convenient time to connect.\n\n" +
-      "Best regards,\n" +
-      "Recruitment Team";
+        const email = "swethakavitha.2026@gmail.com";
 
-    const isAndroid = /Android/i.test(navigator.userAgent);
-    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const subject =
+            "Job Opportunity - Recruitment Enquiry";
 
-    if (isAndroid || isIOS) {
-      event.preventDefault();
+        const body =
+            "Hello Swetha,\n\n" +
+            "I came across your portfolio and was impressed by your technical skills and projects. " +
+            "Your profile appears to be a strong match for the opportunities we are currently considering.\n\n" +
+            "I would like to connect with you to discuss your skills, experience, and potential job opportunities with our organization.\n\n" +
+            "Please let me know a convenient time to connect.\n\n" +
+            "Best regards,\n" +
+            "Recruitment Team";
 
-      const gmailAppURL =
-        "googlegmail://co" +
-        "?to=" + encodeURIComponent(email) +
-        "&subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-      const mailtoURL =
-        "mailto:" +
-        email +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
+        if (isAndroid) {
+            event.preventDefault();
 
-      // Try Gmail app
-      window.location.href = gmailAppURL;
+            const gmailAppURL =
+                "googlegmail://co" +
+                "?to=" + encodeURIComponent(email) +
+                "&subject=" + encodeURIComponent(subject) +
+                "&body=" + encodeURIComponent(body);
 
-      // If Gmail app is not available, fall back to email app
-      setTimeout(function () {
-        window.location.href = mailtoURL;
-      }, 1500);
+            window.location.href = gmailAppURL;
 
-    }
-    // Laptop keeps the normal Gmail web link
-  });
+        } else if (isIOS) {
+            event.preventDefault();
+
+            const gmailAppURL =
+                "googlegmail://co" +
+                "?to=" + encodeURIComponent(email) +
+                "&subject=" + encodeURIComponent(subject) +
+                "&body=" + encodeURIComponent(body);
+
+            window.location.href = gmailAppURL;
+        }
+
+        // Laptop:
+        // The normal Gmail URL in href will open.
+    });
 }
