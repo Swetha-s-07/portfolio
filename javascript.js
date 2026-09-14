@@ -195,52 +195,39 @@ if (yearElement) {
   yearElement.textContent =
     new Date().getFullYear();
 }
+/* =========================
+   SEND EMAIL
+========================= */
+
 const sendEmailBtn = document.getElementById("sendEmailBtn");
 
 if (sendEmailBtn) {
-    sendEmailBtn.addEventListener("click", function (event) {
+  sendEmailBtn.addEventListener("click", function (event) {
 
-        const email = "swethakavitha.2026@gmail.com";
+    const email = "swethakavitha.2026@gmail.com";
 
-        const subject =
-            "Job Opportunity - Recruitment Enquiry";
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(
+      navigator.userAgent
+    );
 
-        const body =
-            "Hello Swetha,\n\n" +
-            "I came across your portfolio and was impressed by your technical skills and projects. " +
-            "Your profile appears to be a strong match for the opportunities we are currently considering.\n\n" +
-            "I would like to connect with you to discuss your skills, experience, and potential job opportunities with our organization.\n\n" +
-            "Please let me know a convenient time to connect.\n\n" +
-            "Best regards,\n" +
-            "Recruitment Team";
+    // Mobile
+    if (isMobile) {
+      event.preventDefault();
 
-        const isAndroid = /Android/i.test(navigator.userAgent);
-        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      // Try to open Gmail app
+      window.location.href =
+        "googlegmail://co?to=" +
+        encodeURIComponent(email);
 
-        if (isAndroid) {
-            event.preventDefault();
+      // Fallback to Gmail website
+      setTimeout(() => {
+        window.location.href =
+          "https://mail.google.com/mail/?view=cm&fs=1&to=" +
+          encodeURIComponent(email);
+      }, 1500);
+    }
 
-            const gmailAppURL =
-                "googlegmail://co" +
-                "?to=" + encodeURIComponent(email) +
-                "&subject=" + encodeURIComponent(subject) +
-                "&body=" + encodeURIComponent(body);
-
-            window.location.href = gmailAppURL;
-
-        } else if (isIOS) {
-            event.preventDefault();
-
-            const gmailAppURL =
-                "googlegmail://co" +
-                "?to=" + encodeURIComponent(email) +
-                "&subject=" + encodeURIComponent(subject) +
-                "&body=" + encodeURIComponent(body);
-
-            window.location.href = gmailAppURL;
-        }
-
-        // Laptop:
-        // The normal Gmail URL in href will open.
-    });
+    // Laptop/Desktop:
+    // The href in index.html will open Gmail website.
+  });
 }
