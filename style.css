@@ -700,7 +700,9 @@ img {
 .contact-resume {
   margin-top: 22px;
 }
-
+.brand {
+  color: #ffffff;
+}
 .footer {
   border-top: 1px solid var(--line);
   padding: 22px 0;
